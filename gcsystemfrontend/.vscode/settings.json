@@ -1,0 +1,8 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    // Controls the font size.
+	"editor.fontSize": 20,
+    
+    // Adjust the zoom level of the window. The original size is 0 and each increment above or below represents zooming 20% larger or smaller.
+	"window.zoomLevel": 0
+}
