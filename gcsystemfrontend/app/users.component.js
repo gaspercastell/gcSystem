@@ -10,27 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var users_service_1 = require('./services/users.service');
+var http_1 = require("@angular/http");
 var UsersComponent = (function () {
-    function UsersComponent(userService) {
-        this.selected = new core_1.EventEmitter();
-        this.users = userService.listaUsers(true);
+    function UsersComponent(_userService) {
+        this._userService = _userService;
     }
-    UsersComponent.prototype.clickInUser = function (evento) {
-        this.selected.emit({ name: evento.target.textContent });
+    UsersComponent.prototype.ontestGet = function () {
+        var _this = this;
+        this._userService.getCurrentTime()
+            .subscribe(function (data) { return _this.getData = JSON.stringify(data); }, function (error) { return alert(error); }, function () { return console.log("Finished"); });
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], UsersComponent.prototype, "isClient", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], UsersComponent.prototype, "selected", void 0);
     UsersComponent = __decorate([
         core_1.Component({
             selector: 'users',
-            template: "\n        <h3>Lista de usuarios</h3>\n        <ul>\n            <li *ngFor=\"let user of users\">\n                <span (click) = \"clickInUser($event)\">{{user}}</span>\n            </li>\n        </ul>\n    ",
-            providers: [users_service_1.UserService]
+            template: "\n        <button (click)=\"ontestGet()\">test get request </button><br>\n        <p> output : {{getData}}</p>\n    ",
+            providers: [users_service_1.UserService, http_1.HTTP_PROVIDERS]
         }), 
         __metadata('design:paramtypes', [users_service_1.UserService])
     ], UsersComponent);

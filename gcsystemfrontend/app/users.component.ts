@@ -1,30 +1,27 @@
 import { Component , Input, Output, EventEmitter } from '@angular/core'
 import { UserService } from './services/users.service'
+import {AppModule} from './app.module';
+import {HTTP_PROVIDERS} from "@angular/http";
 @Component({
     selector:'users',
     template:`
-        <h3>Lista de usuarios</h3>
-        <ul>
-            <li *ngFor="let user of users">
-                <span (click) = "clickInUser($event)">{{user}}</span>
-            </li>
-        </ul>
+        <button (click)="ontestGet()">test get request </button><br>
+        <p> output : {{getData}}</p>
     `,
-    providers: [UserService]
+    providers: [UserService, HTTP_PROVIDERS]
 })
 
 export class UsersComponent {
-    @Input() isClient: boolean;
-    @Output() selected = new EventEmitter();
-    users:string[];
+    getData:string;
 
-    constructor(userService:UserService){
-        this.users = userService.listaUsers(true);
-    }
+    constructor(private _userService:UserService){} 
 
-    clickInUser(evento):void{
-        this.selected.emit({name: evento.target.textContent});
+    ontestGet(){
+        this._userService.getCurrentTime()
+        .subscribe(
+            data => this.getData = JSON.stringify(data),
+            error => alert(error),
+            () => console.log("Finished")
+        );
     }
 }
-
-
