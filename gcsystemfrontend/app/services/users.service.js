@@ -16,7 +16,7 @@ var UserService = (function () {
         this._http = _http;
     }
     UserService.prototype.getCurrentTime = function () {
-        return this._http.get('http://localhost:3000/api/users.json')
+        return this._http.get('http://localhost:3000/api/v1/users.json')
             .map(function (res) { return res.json(); });
     };
     UserService = __decorate([
