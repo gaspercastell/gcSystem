@@ -6,16 +6,26 @@ enum OrderStatus{
   PENDING("Pendiente de surtir"),
   REJECTED("Pedido rechazado"),
   CANCELLED("Pedido cancelado")
+
+  String value
+
+  public Role(String value) {
+    this.value = value
+  }
+
+  String value() { return value }
+
 }
 
 class Order {
-  User client
   Date orderDate
   Date deliveryDate
   BigDecimal orderAmount
   BigDecimal clientAmount
   OrderStatus status
   BigDecimal pendingPayment
+  static hasMany = [payments: Payment]
+  static belongsTo = [ client: User ]
 
     static constraints = {
       client nullable: true

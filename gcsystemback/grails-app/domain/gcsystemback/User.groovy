@@ -21,7 +21,7 @@ class User {
   String secondLastName
   String phone
   Role rol
-
+  static hasMany = [orders:Order]
 
   static constraints = {
     secondLastName nullable:true
