@@ -26,6 +26,23 @@
 	<g:textField name="name" value="${userInstance?.name}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'orders', 'error')} ">
+	<label for="orders">
+		<g:message code="user.orders.label" default="Orders" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${userInstance?.orders?}" var="o">
+    <li><g:link controller="order" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="order" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'order.label', default: 'Order')])}</g:link>
+</li>
+</ul>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} ">
 	<label for="password">
 		<g:message code="user.password.label" default="Password" />
@@ -47,7 +64,7 @@
 		<g:message code="user.rol.label" default="Rol" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="rol" from="${gcsystemback.Role?.values()}" keys="${gcsystemback.Role.values()*.name()}" required="" value="${userInstance?.rol?.name()}"/>
+	<g:select name="rol" from="${gcsystemback.TypeRole?.values()}" keys="${gcsystemback.TypeRole.values()*.name()}" required="" value="${userInstance?.rol?.name()}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} ">

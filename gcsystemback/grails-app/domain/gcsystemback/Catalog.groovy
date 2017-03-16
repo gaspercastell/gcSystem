@@ -6,7 +6,7 @@ enum CatalogType {
 
   String value
 
-  public Role(String value) {
+  public CatalogType(String value) {
     this.value = value
   }
 

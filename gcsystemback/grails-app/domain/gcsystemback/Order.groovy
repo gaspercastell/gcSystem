@@ -9,7 +9,7 @@ enum OrderStatus{
 
   String value
 
-  public Role(String value) {
+  public OrderStatus(String value) {
     this.value = value
   }
 

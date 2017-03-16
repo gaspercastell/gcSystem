@@ -1,12 +1,12 @@
 package gcsystemback
 
-enum Role {
+enum TypeRole {
   ADMIN("Administrador del sistema"),
   CLIENTE("Rol para clientes en general")
 
   String value
 
-  public Role(String value) {
+  public TypeRole(String value) {
     this.value = value
   }
 
@@ -20,7 +20,7 @@ class User {
   String lastName
   String secondLastName
   String phone
-  Role rol
+  TypeRole rol
   static hasMany = [orders:Order]
 
   static constraints = {

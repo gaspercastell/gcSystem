@@ -7,7 +7,7 @@ class Product {
     CLOTHES("Ropa"),
     ARTICLES("Articulos")
 
-    public Role(String value) {
+    public ProducType(String value) {
       this.value = value
     }
     String value() { return value }
@@ -23,7 +23,7 @@ class Product {
   String image
   static hasMany = [sizes:Size,colors:Color]
   static belongsTo = [ catalogo: Catalog ]
-  
+
     static constraints = {
       type nullable:true
       description nullable:true

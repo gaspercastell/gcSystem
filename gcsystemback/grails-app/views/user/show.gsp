@@ -50,6 +50,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${userInstance?.orders}">
+				<li class="fieldcontain">
+					<span id="orders-label" class="property-label"><g:message code="user.orders.label" default="Orders" /></span>
+					
+						<g:each in="${userInstance.orders}" var="o">
+						<span class="property-value" aria-labelledby="orders-label"><g:link controller="order" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${userInstance?.password}">
 				<li class="fieldcontain">
 					<span id="password-label" class="property-label"><g:message code="user.password.label" default="Password" /></span>
