@@ -6,6 +6,7 @@ class Product {
     SHOES("Zapatos"),
     CLOTHES("Ropa"),
     ARTICLES("Articulos")
+    String value
 
     public ProducType(String value) {
       this.value = value
@@ -18,7 +19,7 @@ class Product {
   String code
   Double private_price
   Double public_price
-  Integer active
+  Boolean active
   Integer catalog_page
   String image
   static hasMany = [sizes:Size,colors:Color]
@@ -50,9 +51,8 @@ class Product {
       catalog_page colum:"PAGINA_CATALOGO"
       image colum:"IMAGEN"
 
-      sizes joinTable:[name:"product_size", key:'id_product']
-      colors joinTable:[name:"product_color", key:'id_product']
-
+      sizes joinTable: [name: "product_size", key: "id_product", column: "id_size"]
+      colors joinTable: [name: "product_color", key: "id_product", column: "id_color"]
       id ( generator:"sequence", params: [ sequence:"US_SEQ" ] )
     }
 }

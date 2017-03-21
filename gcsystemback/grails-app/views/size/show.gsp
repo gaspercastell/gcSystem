@@ -32,13 +32,38 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${sizeInstance?.products}">
+				<g:if test="${sizeInstance?.number}">
 				<li class="fieldcontain">
-					<span id="products-label" class="property-label"><g:message code="size.products.label" default="Products" /></span>
+					<span id="number-label" class="property-label"><g:message code="size.number.label" default="Number" /></span>
 					
-						<g:each in="${sizeInstance.products}" var="p">
-						<span class="property-value" aria-labelledby="products-label"><g:link controller="product" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="number-label"><g:fieldValue bean="${sizeInstance}" field="number"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sizeInstance?.isClothes}">
+				<li class="fieldcontain">
+					<span id="isClothes-label" class="property-label"><g:message code="size.isClothes.label" default="Is Clothes" /></span>
+					
+						<span class="property-value" aria-labelledby="isClothes-label"><g:formatBoolean boolean="${sizeInstance?.isClothes}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sizeInstance?.isShoes}">
+				<li class="fieldcontain">
+					<span id="isShoes-label" class="property-label"><g:message code="size.isShoes.label" default="Is Shoes" /></span>
+					
+						<span class="property-value" aria-labelledby="isShoes-label"><g:formatBoolean boolean="${sizeInstance?.isShoes}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sizeInstance?.active}">
+				<li class="fieldcontain">
+					<span id="active-label" class="property-label"><g:message code="size.active.label" default="Active" /></span>
+					
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${sizeInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

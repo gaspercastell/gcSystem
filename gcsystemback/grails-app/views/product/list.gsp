@@ -52,7 +52,7 @@
 					
 						<td>${fieldValue(bean: productInstance, field: "public_price")}</td>
 					
-						<td>${fieldValue(bean: productInstance, field: "active")}</td>
+						<td><g:formatBoolean boolean="${productInstance.active}" /></td>
 					
 					</tr>
 				</g:each>

@@ -26,6 +26,14 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'size.name.label', default: 'Name')}" />
 					
+						<g:sortableColumn property="number" title="${message(code: 'size.number.label', default: 'Number')}" />
+					
+						<g:sortableColumn property="isClothes" title="${message(code: 'size.isClothes.label', default: 'Is Clothes')}" />
+					
+						<g:sortableColumn property="isShoes" title="${message(code: 'size.isShoes.label', default: 'Is Shoes')}" />
+					
+						<g:sortableColumn property="active" title="${message(code: 'size.active.label', default: 'Active')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -33,6 +41,14 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${sizeInstance.id}">${fieldValue(bean: sizeInstance, field: "name")}</g:link></td>
+					
+						<td>${fieldValue(bean: sizeInstance, field: "number")}</td>
+					
+						<td><g:formatBoolean boolean="${sizeInstance.isClothes}" /></td>
+					
+						<td><g:formatBoolean boolean="${sizeInstance.isShoes}" /></td>
+					
+						<td><g:formatBoolean boolean="${sizeInstance.active}" /></td>
 					
 					</tr>
 				</g:each>

@@ -32,17 +32,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${colorInstance?.products}">
-				<li class="fieldcontain">
-					<span id="products-label" class="property-label"><g:message code="color.products.label" default="Products" /></span>
-					
-						<g:each in="${colorInstance.products}" var="p">
-						<span class="property-value" aria-labelledby="products-label"><g:link controller="product" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

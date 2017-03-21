@@ -83,7 +83,7 @@
 				<li class="fieldcontain">
 					<span id="active-label" class="property-label"><g:message code="product.active.label" default="Active" /></span>
 					
-						<span class="property-value" aria-labelledby="active-label"><g:fieldValue bean="${productInstance}" field="active"/></span>
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${productInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

@@ -1,18 +1,24 @@
 package gcsystemback
 
 class Size {
-  static belongsTo = Product
-  static hasMany =[products:Product]
+
   String name
+  Integer number
+  Boolean active
+  Boolean isClothes
+  Boolean isShoes
+  
   static constraints = {
     name  nullable:true
+    number nullable:true
+    isClothes nullable:true
+    isShoes nullable:true
   }
 
   static mapping = {
     table "TALLA"
 
     name colum:"NOMBRE"
-    products joinTable : [name:"product_size", key:"id_size"]
     id ( generator:"sequence", params: [ sequence:"US_SEQ" ] )
   }
 
