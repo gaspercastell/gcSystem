@@ -18,6 +18,7 @@ enum OrderStatus{
 }
 
 class Order {
+
   Date orderDate
   Date deliveryDate
   BigDecimal orderAmount
@@ -37,7 +38,7 @@ class Order {
       pendingPayment nullable: true
     }
   static mapping = {
-    table "order"
+    table "pedido"
 
     client colum:"id_user"
     orderDate colum:"date_order"
