@@ -16,7 +16,8 @@ var UserService = (function () {
         this._http = _http;
     }
     UserService.prototype.getCurrentTime = function () {
-        return this._http.get('http://localhost:3000/api/v1/users.json')
+        //return this._http.get('http://localhost:8080/gcsystembackend/api/v1/user/getUser')
+        return this._http.get('/api/v1/user/getUser')
             .map(function (res) { return res.json(); });
     };
     UserService = __decorate([
@@ -26,4 +27,9 @@ var UserService = (function () {
     return UserService;
 }());
 exports.UserService = UserService;
+//main.ts
+// Importar objetos de la librería http
+//import { Http, Response, RequestOptions, Headers } from '@angular/http';
+// Importar la clase Observable desde la librería rxjs
+//import { Observable }     from 'rxjs/Observable';
 //# sourceMappingURL=users.service.js.map
