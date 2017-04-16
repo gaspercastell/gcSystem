@@ -2,7 +2,7 @@ import {Component} from '@angular/core'
 import {LoginService} from '../../_services/login.service'
 
 @Component ({
-    selector:'login-root',
+    selector:'login',
     templateUrl: './login.component.html',
     providers: [LoginService]
 })
@@ -10,6 +10,15 @@ import {LoginService} from '../../_services/login.service'
 export class LoginComponent{
     mensaje : String;
     constructor(private loginService : LoginService){
-        this.mensaje = loginService.getUserInfo();
+        this.getUserInfo();
     }
+
+    getUserInfo(){
+        this.loginService.getUserInfo().subscribe(
+            data => this.mensaje = JSON.stringify(data),
+            error => alert(error),
+            () => console.log("Fin")
+        );
+    }
+
 }
