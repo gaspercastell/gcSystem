@@ -1,7 +1,0 @@
-{
-    "/api/*":{
-        "target":"http://localhost:8080/gcsystembackend",
-        "secure":false,
-        "logLevel":"debug"
-    }
-}
