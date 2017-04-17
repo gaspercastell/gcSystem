@@ -7,6 +7,7 @@ import { Routing } from './app.router'; // debe ir antes de los components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_components/login/login.component'
 
+import { MaterializeModule } from 'angular2-materialize';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { LoginComponent } from './_components/login/login.component'
     FormsModule,
     HttpModule,
     Routing,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
